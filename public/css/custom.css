@@ -1,0 +1,15 @@
+.navbar-bg{
+    background-color: darkgray;
+}
+
+.header-gb{
+    background-color: lightslategrey;
+}
+
+.content .content-tab{
+    display: none;
+}
+
+.content .content-tab.active{
+    display: block;
+}
