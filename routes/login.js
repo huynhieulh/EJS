@@ -3,12 +3,6 @@ const { status } = require('express/lib/response');
 var router = express.Router();
 var pool = require('../config/database')
 
-// Dummy user database (replace this with your actual user database)
-const users = [
-  { id: 1, username: 'Admin', password: '123456', role: 'admin'},
-  { id: 2, username: 'hieule', password: '123456', role: 'operater'},
-];
-
 /* GET login page. */
 router.get('/', function(req, res, next) {
   if ( req.session.username == undefined){
@@ -41,8 +35,6 @@ router.post('/', function(req, res, next) {
         message: "Invalid DATA"
       })
     }
-
-    console.log('Result: ', results);
     // Check if user credentials are valid
     if (results.length === 0) {
       return res.send({
