@@ -1,3 +1,7 @@
+body{
+    padding-right: 0 !important;
+}
+
 .navbar-bg{
     background-color: darkgray;
 }
@@ -12,4 +16,39 @@
 
 .content .content-tab.active{
     display: block;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+    padding: 5px 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn i{
+    font-size: 20px;
+}
+.btn span{
+    margin-left: 5px;
+}
+
+.btn-close-modal{
+    width: 45px;
+    height: 45px;
+    background-image: url(../img/close-icon.png);
+    background-position: center;
+    background-size: 25px;
+    background-repeat: no-repeat;
+}
+
+.bg-header{
+    background-color: #0c0f42;
+    color: #f5c7f7;
+}
+
+.bg-footer{
+    background-color: #bfcfde;
 }

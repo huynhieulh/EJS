@@ -1,9 +1,13 @@
 /********** Template CSS **********/
 :root {
-    --primary: #170404;
+    /* --primary: #170404;
     --secondary: #e8edff;
     --light: #fffeeb;
-    --dark: #c6c6c6;
+    --dark: #c6c6c6; */
+    --primary: #f5c7f7;
+    --secondary: #a393eb;
+    --light: #0c0f42;
+    --dark: #464778;
 }
 
 a{

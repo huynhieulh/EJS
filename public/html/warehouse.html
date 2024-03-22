@@ -1,6 +1,12 @@
-<div class="row">
+<div class="container mt-3">
     <div class="bg-secondary rounded h-100 p-4">
-        <h6 class="mb-4">Bordered Table</h6>
+        <div class="d-flex justify-content-between mb-2">
+            <h6>Danh sách sản phẩm</h6>
+            <button type="button" class="btn btn-success" id="addItemsBtn" data-bs-toggle="modal" data-bs-target="#modalImportItems">
+                <i class="fa-solid fa-square-plus"></i>
+                <span class="pl-2">Nhập kho</span>
+            </button>
+        </div>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -33,3 +39,108 @@
         </table>
     </div>
 </div>
+  <!-- The Modal -->
+  <div class="modal" id="modalImportItems">
+    <div class="modal-dialog modal-fullscreen-sm-down	modal-lg">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header bg-header">
+          <h4 class="modal-title">Nhập kho</h4>
+          <button class="btn btn-close-modal" type="button" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body bg-secondary">
+          <div class="h-100 p-2">
+            <form>
+                <div class="row mb-3">
+                    <label for="product_name" class="col-5 col-sm-2 col-form-label">Tên sản phẩm</label>
+                    <div class="col-sm-10 col-7">
+                        <input class="form-control" id="product_name" required>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 mb-3">
+                    <div class="row">
+                      <label for="price" class="col-5 col-form-label">Giá</label>
+                      <div class="col-7">
+                          <input type="text" class="form-control currency-input" id="price">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <div class="row">
+                      <label for="quantity_available" class="col-5 col-form-label">Số lượng</label>
+                      <div class="col-7">
+                          <input type="number" value="0" class="form-control text-end" id="quantity_available">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 mb-3">
+                    <div class="row">
+                      <label for="production_date" class="col-5 col-form-label">NSX</label>
+                      <div class="col-7">
+                        <div class="form-group">
+                          <div class="input-group date" id="dateProductionPicker" data-target-input="nearest">
+                              <input type="text" id="production_date" class="form-control datetimepicker-input" data-target="#dateProductionPicker"/>
+                              <div class="input-group-append" data-target="#dateProductionPicker" data-toggle="datetimepicker">
+                                  <div class="input-group-text h-100"><i class="fa fa-calendar"></i></div>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <div class="row">
+                      <label for="expiration_date" class="col-5 col-form-label">HSD</label>
+                      <div class="col-7">
+                        <div class="form-group">
+                          <div class="input-group date" id="dateExpiryPicker" data-target-input="nearest">
+                              <input type="text" id="expiration_date" class="form-control datetimepicker-input" data-target="#dateExpiryPicker"/>
+                              <div class="input-group-append" data-target="#dateExpiryPicker" data-toggle="datetimepicker">
+                                  <div class="input-group-text h-100"><i class="fa fa-calendar"></i></div>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12">
+                    <label for="description" class="col-4 col-form-label">Ghi chú</label>
+                    <textarea class="form-control" id="description" style="height: 90px;"></textarea>
+                  </div>
+
+                </div>
+                
+            </form>
+          </div>
+        </div>
+      
+        <div class="modal-footer bg-footer">
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal">Nhập kho</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(function() {
+      $("#modalImportItems .currency-input").inputmask({ alias : "vnd" });
+      $('#dateProductionPicker').datetimepicker({ 
+        locale: "vi", 
+        format: 'YYYY-MM-DD'
+      });
+      $('#dateExpiryPicker').datetimepicker({ 
+        locale: "vi", 
+        format: 'YYYY-MM-DD'
+      });
+    })
+  </script>
