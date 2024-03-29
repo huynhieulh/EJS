@@ -262,6 +262,45 @@
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
+
+    
+    <!-- Modal success -->
+    <div class="modal fade" id="successModal" tabindex="9999" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body d-flex">
+                    <img src="img/cuccess.png" alt="" style="width: 50px; height: 50px;">
+
+                    <div class="w-100 ms-3 d-flex justify-content-center">
+                        <h3 class="text-success message">Thao tác thành công</h3>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex align-items-center justify-content-center">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+                        style="width: 100px; height: 45px;">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Error -->
+    <div class="modal fade" id="errorModal" tabindex="9999" aria-labelledby="errorModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body d-flex">
+                    <img src="img/error.png" alt="" style="width: 50px; height: 50px;">
+
+                    <div class="w-100 ms-3 d-flex justify-content-center">
+                        <h3 class="text-danger message">Thao tác thất bại</h3>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex align-items-center justify-content-center">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                        style="width: 100px; height: 45px;">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <%- include('footer.ejs'); %>
 </body>
 

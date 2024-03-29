@@ -1,3 +1,75 @@
+
+function loadProductList(){
+    apiHandler.get({act : API_ACTION.GET_PRODUCT}, (res)=>{
+        if(res.success){
+
+            data = res.data
+            productLenght = data.length
+            tableBody = $("#warehouse").find(".table").find("tbody")
+            tableBody.empty()
+
+            const formatter = new Intl.NumberFormat('vi-VN', {
+                style: 'currency',
+                currency: 'VND' // Vietnamese Dong
+            });
+
+            for (let i = 0; i < productLenght; i++) {
+                price = parseFloat(data[i].price).toFixed()
+                price = formatter.format(price).replaceAll(".", ",");
+                content = `<tr id="` + data[i].product_id + `">
+                                <td scope="row">` + (i + 1) +`</th>
+                                <td>` + data[i].product_name + `</td>
+                                <td>` + data[i].quantity_available + `</td>
+                                <td>` + price + `</td>
+                                <td>` + data[i].exp_date + `</td>
+                                <td class="d-flex justify-content-center">
+                                    <button class="btn"><i class="fas fa-pen-square"></i></button>
+                                </td>
+                            </tr>`;
+
+                tableBody.append(content);
+            }
+        }
+    })
+}
+function loadCustomerList(){
+    apiHandler.get({act : API_ACTION.GET_CUSTOMER}, (res)=>{
+        if(res.success){
+
+            data = res.data
+            customertLenght = data.length
+            tableBody = $("#table-customer-list").find("tbody")
+            tableBody.empty()
+
+            for (let i = 0; i < customertLenght; i++) {
+                content = `<tr id="` + data[i].customer_id + `">
+                                <td scope="row">` + (i + 1) +`</th>
+                                <td>` + data[i].customer_name + `</td>
+                                <td>` + data[i].address + `</td>
+                                <td>` + data[i].phone_number + `</td>
+                                <td class="d-flex justify-content-center">
+                                    <button class="btn"><i class="fas fa-pen-square"></i></button>
+                                </td>
+                            </tr>`;
+
+                tableBody.append(content);
+            }
+        }
+    })
+}
+
+function bindingData(key) {
+    switch (key) {
+        case "warehouse":          
+            loadProductList()
+            break;
+        case "customer":
+            loadCustomerList()
+        default:
+            break;
+    }
+} 
+
 (function ($) {
     "use strict";
 
@@ -23,7 +95,10 @@
         if($("#" + key).is(':empty')){
             loadFile.load(key, (data)=>{
                 $("#" + key).append(data)
+                bindingData(key)
             })
+        }else{
+            bindingData(key)
         }
 
         // Show container

@@ -66,7 +66,7 @@ class LoadFile {
     }
 
     async load(page, callback) {
-        let url = this.baseURL +'api/' + page;
+        let url = this.baseURL +'api/loadPage/' + page;
         fetch(url)
             .then(response => {
                 if (!response.ok) {

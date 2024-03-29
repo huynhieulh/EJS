@@ -1,0 +1,32 @@
+<div class="container mt-3">
+    <div class="table-responsive bg-secondary rounded h-100 p-4">
+      <div class="d-flex justify-content-between mb-2">
+        <div class="row" id="customer-form">
+            <div class="col-sm-3"><input class="form-control" id="customer_name" placeholder="Tên khách hàng" required></div>
+            <div class="col-sm-3"><input type="text" maxlength="10" placeholder="SĐT" class="form-control" id="phone_number" required></div>
+            <div class="col-sm-4"><input type="text" class="form-control" id="address" placeholder="Địa chỉ" required></div>
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-success" id="addNewCustomer">
+                    <i class="fa-solid fa-square-plus"></i>
+                    <span class="pl-2">Thêm</span>
+                </button>
+            </div>
+        </div>
+        
+      </div>
+      <table id="table-customer-list" class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">STT</th>
+            <th scope="col">Tên khách hàng</th>
+            <th scope="col">Địa chỉ</th>
+            <th scope="col">Số điện thoại</th>
+            <th scope="col" style="width: 95px;">Chỉnh sửa</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="js/customer_event.js"></script>

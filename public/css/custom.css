@@ -47,6 +47,8 @@ body{
 .bg-header{
     background-color: #0c0f42;
     color: #f5c7f7;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 .bg-footer{
