@@ -1,0 +1,168 @@
+<div class="container mt-3">
+    <div class="table-responsive bg-secondary rounded h-100 p-4">
+      <div class="d-flex justify-content-between mb-2">
+        <h6>Danh sách sản phẩm</h6>
+        <button type="button" class="btn btn-success" id="addOrderBtn" data-bs-toggle="modal"
+          data-bs-target="#modalOrder">
+          <i class="fa-solid fa-square-plus"></i>
+          <span class="pl-2">Tạo đơn hàng</span>
+        </button>
+      </div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Mã đơn</th>
+            <th scope="col">Tên khách hàng</th>
+            <th scope="col">Tổng tiền</th>
+            <th scope="col">Ngày đặt hàng</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- The Modal -->
+  <div class="modal fade" id="modalOrder" mode="create">
+    <div class="modal-dialog modal-fullscreen-sm-down modal-lg">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header bg-header">
+          <h4 class="modal-title">Đơn hàng mới</h4>
+          <button class="btn btn-close-modal" type="button" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body bg-secondary">
+          <div class="h-100 p-2">
+            <form>
+              <div class="row mb-3">
+                <!-- Customer name -->
+                <div class="col-sm-6 col-12">
+                  <div class="row">
+                    <div class="col-sm-5 col-6">
+                      <label for="customer_id">Tên khách hàng:</label>
+                    </div>
+                    <div class="col-sm-7 col-6">
+                      <div id="customer_id" class="form-control select">
+                        <input id="customer_id_input" type="text" data-bs-toggle="dropdown" />
+                        <div class="dropdown-menu"></div>
+                        <select name="customer_id" multiple hidden>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- User name -->
+                <div class="col-sm-6 col-12">
+                  <div class="row">
+                    <div class="col-sm-5 col-6">
+                      <label for="user_id">Người tạo:</label>
+                    </div>
+                    <div class="col-sm-7 col-6">
+                      <div id="user_id" class="form-control select">
+                        <input id="user_id_input" type="text" data-bs-toggle="dropdown" />
+                        <div class="dropdown-menu"></div>
+                        <select name="user_id" multiple hidden>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row table-responsive">
+                <div class="col-sm-12 mb-3">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Sản phẩm</th>
+                        <th scope="col">Số lượng</th>
+                        <th scope="col">Đơn giá</th>
+                        <th scope="col">Thành tiền</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody id="products-body">
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>
+                          <button type="button" class="btn btn-danger px-2">
+                            <i class="fa-solid fa-x"></i>
+                        </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tbody id="products-input-body">
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>
+                          <div id="product_name" class="form-control select">
+                            <input id="product_name_input" type="text" data-bs-toggle="dropdown" />
+                            <div class="dropdown-menu"></div>
+                            <select id="product_name_select" name="product_name" hidden>
+                            </select>
+                          </div>
+                        </td>
+                        <td>
+                          <input type="number" id="total-item" class="form-control" value="0"  min="1" max="100">
+                        </td>
+                        <td id="price">0</td>
+                        <td id="price">0</td>
+                        <td>
+                          <button type="button" id="add-item" class="btn btn-primary px-2">
+                            <i class="fa-solid fa-square-plus"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tbody>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h6>Tổng cộng</h6></td>
+                        <td><h6 id="total_amount">0</h6></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="row justify-content-end">
+                <div class="col-sm-6 mb-3">
+                  <div class="row">
+                    <h6 for="production_date" class="col-4 col-form-label text-end">Ngày tạo</h6>
+                    <div class="col-8">
+                      <div class="form-group">
+                        <div class="input-group date" id="dateProductionPicker" data-target-input="nearest">
+                          <input type="text" id="production_date" class="form-control datetimepicker-input"
+                            data-target="#dateProductionPicker" onkeydown="return false" required />
+                          <div class="input-group-append" data-target="#dateProductionPicker"
+                            data-toggle="datetimepicker">
+                            <div class="input-group-text h-100"><i class="fa fa-calendar"></i></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+  
+        <div class="modal-footer bg-footer">
+          <button type="button" class="btn btn-success" id="addNewItem">Nhập kho</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+
+  <script src="js/order_event.js"></script>

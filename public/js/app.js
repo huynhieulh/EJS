@@ -1,3 +1,4 @@
+var user_data
 
 function loadProductList(){
     apiHandler.get({act : API_ACTION.GET_PRODUCT}, (res)=>{
@@ -8,14 +9,11 @@ function loadProductList(){
             tableBody = $("#warehouse").find(".table").find("tbody")
             tableBody.empty()
 
-            const formatter = new Intl.NumberFormat('vi-VN', {
-                style: 'currency',
-                currency: 'VND' // Vietnamese Dong
-            });
+            const formatter = new Intl.NumberFormat();
 
             for (let i = 0; i < productLenght; i++) {
                 price = parseFloat(data[i].price).toFixed()
-                price = formatter.format(price).replaceAll(".", ",");
+                price = formatter.format(price).replaceAll(".", ",")
                 content = `<tr id="` + data[i].product_id + `">
                                 <td scope="row">` + (i + 1) +`</th>
                                 <td>` + data[i].product_name + `</td>

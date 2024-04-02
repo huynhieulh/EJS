@@ -14,6 +14,9 @@ router.get('/loadPage/warehouse', function(req, res, next) {
 router.get('/loadPage/customer', function(req, res, next) {  
   return res.sendFile(path.join(__dirname, '../public/html', 'customer.html'));
 });
+router.get('/loadPage/order', function(req, res, next) {  
+  return res.sendFile(path.join(__dirname, '../public/html', 'order.html'));
+});
 
 
 router.post('/newProduct', function(req, res, next) {
@@ -138,6 +141,28 @@ router.get('/customers', function(req, res, next) {
       success: true,
       code: 200,
       message: "Get customer list success",
+      data: results
+    })
+
+  });
+
+})
+
+router.get('/users', function(req, res, next) {
+  pool.query('SELECT user_id, username, user_status, full_name FROM Users WHERE user_status = "unlock"', (err, results) => {
+    if (err) {
+      console.log('Error executing query: ', err);
+      return res.send({
+        success: false,
+        code: 401,
+        message: "Internal server error"
+      })
+    }
+
+    return res.send({
+      success: true,
+      code: 200,
+      message: "Get users list success",
       data: results
     })
 

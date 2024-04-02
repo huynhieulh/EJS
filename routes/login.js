@@ -44,13 +44,16 @@ router.post('/', function(req, res, next) {
       })
     }
 
+    data = results[0]
+    delete data.password
+    
     // Set user in session
-    req.session.username = "Admin";
-    req.session.role = "admin";
+    req.session.username = results[0].username;
+    req.session.role = results[0].role;
     return res.send({
       success: true,
       code: 200,
-      message: "Login success"
+      data: data
     })
 
   });

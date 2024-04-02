@@ -5,7 +5,7 @@ API_ACTION  = {
     GET_PRODUCT: 'api/products',
     ADD_CUSTOMER: 'api/newCustomer',
     GET_CUSTOMER: 'api/customers',
-
+    GET_USERS: 'api/users',
 }
 
 SPECIALCHARSMAP = {
